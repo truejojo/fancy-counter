@@ -1,5 +1,5 @@
-const Count = () => {
-  return <p>0</p>;
+const Count = ({ count }) => {
+  return <p>{count}</p>;
 };
 
 export default Count;

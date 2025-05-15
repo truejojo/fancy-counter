@@ -7,7 +7,7 @@ const Card = () => {
   return (
     <div>
       <Title />
-      <Count />
+      <Count count={0} />
       <ResetButton />
       <CountButtons />
     </div>
