@@ -1,15 +1,18 @@
+import { useState } from 'react';
 import Title from './Title';
 import Count from './Count';
 import ResetButton from './ResetButton';
 import CountButtons from './CountButtons';
 
 const Card = () => {
+  const [count, setCount] = useState(0);
+
   return (
     <div className='card'>
       <Title />
-      <Count count={0} />
+      <Count count={count} />
       <ResetButton />
-      <CountButtons />
+      <CountButtons setCount={setCount} />
     </div>
   );
 };
