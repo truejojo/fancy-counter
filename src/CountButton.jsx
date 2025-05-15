@@ -1,7 +1,9 @@
 import { MinusIcon, PlusIcon } from '@radix-ui/react-icons';
 
 const CountButton = ({ type, setCount, locked }) => {
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.currentTarget.blur();
+
     setCount(
       (prevCount) =>
         prevCount +
