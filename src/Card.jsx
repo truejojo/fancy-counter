@@ -3,6 +3,7 @@ import Title from './Title';
 import Count from './Count';
 import ResetButton from './ResetButton';
 import ButtonContainer from './ButtonContainer';
+import CountButton from './CountButton';
 
 const Card = () => {
   const [count, setCount] = useState(0);
@@ -11,7 +12,12 @@ const Card = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === 'Space') {
-        setCount((prevCount) => prevCount + 1);
+        const newCount = count + 1;
+        if (newCount > 5) {
+          setCount(5);
+          return;
+        }
+        setCount(newCount);
       }
     };
 
@@ -27,7 +33,10 @@ const Card = () => {
       <Title locked={locked} />
       <Count count={count} />
       <ResetButton setCount={setCount} />
-      <ButtonContainer locked={locked} setCount={setCount} />
+      <ButtonContainer>
+        <CountButton type='minus' setCount={setCount} locked={locked} />
+        <CountButton type='plus' setCount={setCount} locked={locked} />
+      </ButtonContainer>
     </div>
   );
 };
