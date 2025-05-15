@@ -6,13 +6,14 @@ import ButtonContainer from './ButtonContainer';
 
 const Card = () => {
   const [count, setCount] = useState(0);
+  const locked = count === 5 ? true : false;
 
   return (
-    <div className='card'>
-      <Title />
+    <div className={`card ${locked ? 'card--limit' : ''}`}>
+      <Title locked={locked} />
       <Count count={count} />
       <ResetButton setCount={setCount} />
-      <ButtonContainer setCount={setCount} />
+      <ButtonContainer locked={locked} setCount={setCount} />
     </div>
   );
 };
