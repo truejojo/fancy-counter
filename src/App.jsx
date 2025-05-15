@@ -1,9 +1,11 @@
-function App() {
+import Card from './Card';
+
+const App = () => {
   return (
-    <>
-      <h1>Fancy Counter</h1>
-    </>
+    <main>
+      <Card />
+    </main>
   );
-}
+};
 
 export default App;
